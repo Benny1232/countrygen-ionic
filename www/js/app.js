@@ -34,14 +34,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
+    cash:false,
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
 
   // Each tab has its own nav history stack:
 
+  .state('index', {
+    url: '/',
+    cash:false,
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/tab-input.html',
+        controller: 'InputCtrl'
+      }
+    }
+  })
+
   .state('tab.input', {
     url: '/input',
+    cash:false,
     views: {
       'tab-dash': {
         templateUrl: 'templates/tab-input.html',
@@ -52,6 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('tab.output', {
       url: '/output',
+      cash:false,
       views: {
         'tab-chats': {
           templateUrl: 'templates/tab-output.html',
@@ -62,6 +76,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('tab.help', {
     url: '/help',
+    cash:false,
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-help.html',
@@ -71,6 +86,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/input');
+   $urlRouterProvider.otherwise('/');
 
 });
